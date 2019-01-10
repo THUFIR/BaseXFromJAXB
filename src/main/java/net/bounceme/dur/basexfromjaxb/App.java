@@ -5,7 +5,7 @@ import net.bounceme.dur.basexfromjaxb.books.Library;
 import java.net.URI;
 import java.util.Properties;
 import java.util.logging.Logger;
-import net.bounceme.dur.basexfromjaxb.csv.C;
+import net.bounceme.dur.basexfromjaxb.csv.ReaderForCVS;
 
 public class App {
 
@@ -20,8 +20,9 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/jaxb.xml"));
         URI inputURI = new URI(properties.getProperty("input_csv"));
         URI outputURI = new URI(properties.getProperty("output"));
-        C c = new C();
+        ReaderForCVS c = new ReaderForCVS();
         c.unmarshal(inputURI);
+        c.printMap();
     }
 
     private void readBooksFromFile() throws Exception {
