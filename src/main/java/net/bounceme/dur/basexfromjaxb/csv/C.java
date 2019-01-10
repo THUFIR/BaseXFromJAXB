@@ -1,16 +1,19 @@
 package net.bounceme.dur.basexfromjaxb.csv;
 
+import java.io.File;
 import java.net.URI;
 import java.util.logging.Logger;
+import javax.xml.bind.JAXB;
 
 public class C {
 
-        private static final Logger LOG = Logger.getLogger(C.class.getName());
+    private static final Logger LOG = Logger.getLogger(C.class.getName());
 
     public C() {
     }
 
-    public void marshal(URI inputURI) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void unmarshal(URI inputURI) {
+        File file = new File(inputURI);
+        Foo foo = JAXB.unmarshal(file, Foo.class);
     }
 }

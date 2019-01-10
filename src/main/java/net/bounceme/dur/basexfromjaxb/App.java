@@ -21,7 +21,7 @@ public class App {
         URI inputURI = new URI(properties.getProperty("input_csv"));
         URI outputURI = new URI(properties.getProperty("output"));
         C c = new C();
-        c.marshal(inputURI);
+        c.unmarshal(inputURI);
     }
 
     private void readBooksFromFile() throws Exception {
