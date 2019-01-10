@@ -5,6 +5,7 @@ import net.bounceme.dur.basexfromjaxb.books.Library;
 import java.net.URI;
 import java.util.Properties;
 import java.util.logging.Logger;
+import net.bounceme.dur.basexfromjaxb.csv.C;
 
 public class App {
 
@@ -12,7 +13,15 @@ public class App {
     private Properties properties = new Properties();
 
     public static void main(final String... args) throws Exception {
-        new App().readBooksFromFile();
+        new App().marshalCSV();
+    }
+
+    private void marshalCSV() throws Exception {
+        properties.loadFromXML(App.class.getResourceAsStream("/jaxb.xml"));
+        URI inputURI = new URI(properties.getProperty("input_csv"));
+        URI outputURI = new URI(properties.getProperty("output"));
+        C c = new C();
+        c.marshal(inputURI);
     }
 
     private void readBooksFromFile() throws Exception {
