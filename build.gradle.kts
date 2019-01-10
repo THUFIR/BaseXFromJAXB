@@ -24,6 +24,11 @@ dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation("com.google.guava:guava:26.0-jre")
 
+//    compile (group = "org.ccil.cowan.tagsoup" , name = "tagsoup"  , version = "1.2.1")
+    compile (group = "com.opencsv"            , name = "opencsv"  , version = "4.4")
+
+
+
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation("org.testng:testng:6.14.3")
 }
