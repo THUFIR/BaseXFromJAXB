@@ -1,4 +1,4 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb;
 
 public enum RandomSalts {
     LOWER("abcdefghijklmnopqrstuvwxyz"),

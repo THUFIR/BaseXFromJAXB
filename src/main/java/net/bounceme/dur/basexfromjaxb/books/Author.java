@@ -1,5 +1,7 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb.books;
 
+import net.bounceme.dur.basexfromjaxb.RandomSalts;
+import net.bounceme.dur.basexfromjaxb.Utils;
 import java.util.Date;
 import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAccessType;

@@ -1,4 +1,4 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb.books;
 
 import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAccessType;

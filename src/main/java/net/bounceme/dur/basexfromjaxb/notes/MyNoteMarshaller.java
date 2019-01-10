@@ -1,5 +1,6 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb.notes;
 
+import net.bounceme.dur.basexfromjaxb.books.Library;
 import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;

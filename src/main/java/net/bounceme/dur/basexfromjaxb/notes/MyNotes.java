@@ -1,4 +1,4 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb.notes;
 
 import java.util.ArrayList;
 import java.util.List;

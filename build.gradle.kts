@@ -30,8 +30,9 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = "BaseXFromJAXB.App"
+    mainClassName = "net.bounceme.dur.basexfromjaxb.App"
 }
+
 
 val test by tasks.getting(Test::class) {
     // Use TestNG for unit tests

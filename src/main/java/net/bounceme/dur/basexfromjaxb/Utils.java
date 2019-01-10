@@ -1,4 +1,4 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb;
 
 import java.util.Date;
 import java.util.Random;

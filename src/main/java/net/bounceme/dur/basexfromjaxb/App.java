@@ -1,5 +1,7 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb;
 
+import net.bounceme.dur.basexfromjaxb.books.BooksMarshaler;
+import net.bounceme.dur.basexfromjaxb.books.Library;
 import java.net.URI;
 import java.util.Properties;
 import java.util.logging.Logger;

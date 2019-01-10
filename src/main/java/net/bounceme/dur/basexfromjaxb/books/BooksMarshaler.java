@@ -1,4 +1,4 @@
-package BaseXFromJAXB;
+package net.bounceme.dur.basexfromjaxb.books;
 
 import java.io.File;
 import java.net.URI;
