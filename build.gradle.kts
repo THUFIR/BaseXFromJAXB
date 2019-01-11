@@ -25,7 +25,7 @@ dependencies {
     implementation("com.google.guava:guava:26.0-jre")
 
 //    compile (group = "org.ccil.cowan.tagsoup" , name = "tagsoup"  , version = "1.2.1")
-    compile (group = "com.opencsv"            , name = "opencsv"  , version = "4.4")
+//    compile (group = "com.opencsv"            , name = "opencsv"  , version = "4.4")
 
 
 

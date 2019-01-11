@@ -50,8 +50,5 @@ public class App {
         booksMarshaller.marshal(library, outputURI);
     }
 
-    private List<String> c(URI inputURI) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }
