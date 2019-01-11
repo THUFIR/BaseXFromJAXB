@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 import net.bounceme.dur.basexfromjaxb.csv.ReaderForCSV;
+import net.bounceme.dur.basexfromjaxb.data.RawDataHandler;
+import org.w3c.dom.Document;
 
 public class App {
 
@@ -16,7 +18,16 @@ public class App {
     private File f;
 
     public static void main(final String... args) throws Exception {
-        new App().marshalCSV();
+        new App().jfdklfj();
+    }
+
+    private void jfdklfj() throws Exception {
+        properties.loadFromXML(App.class.getResourceAsStream("/jaxb.xml"));
+        URI inputURI = new URI(properties.getProperty("input_data_xml"));
+//        URI outputURI = new URI(properties.getProperty("output"));
+        RawDataHandler rdh = new RawDataHandler();
+        Document doc = rdh.getDoc(inputURI);
+        rdh.printDoc(doc);
     }
 
     private void marshalCSV() throws Exception {
@@ -24,7 +35,7 @@ public class App {
         URI inputURI = new URI(properties.getProperty("input_csv"));
         URI outputURI = new URI(properties.getProperty("output"));
         ReaderForCSV csvReader = new ReaderForCSV();
-        List<String> strings =    csvReader.readFile(inputURI);
+        List<String> strings = csvReader.readFile(inputURI);
         for (String s : strings) {
             LOG.info(s);
         }
@@ -49,6 +60,5 @@ public class App {
         Library library = booksMarshaller.createNewLibraryFromScratch(2, 3, 4);
         booksMarshaller.marshal(library, outputURI);
     }
-
 
 }

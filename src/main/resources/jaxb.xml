@@ -1,6 +1,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>jaxb</comment>
+    <entry key="input_data_xml">file:/home/thufir/jaxb/data.xml</entry>
     <entry key="input_csv">file:/home/thufir/jaxb/input.csv</entry>
     <entry key="input_uri">file:/home/thufir/jaxb/countries_input.xml</entry>
     <entry key="output_uri">file:/home/thufir/jaxb/countries_output.xml</entry>
