@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import net.bounceme.dur.basexfromjaxb.csv.ReaderForCSV;
 import net.bounceme.dur.basexfromjaxb.data.RawDataHandler;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class App {
 
@@ -27,7 +28,8 @@ public class App {
 //        URI outputURI = new URI(properties.getProperty("output"));
         RawDataHandler rdh = new RawDataHandler();
         Document doc = rdh.getDoc(inputURI);
-        rdh.printDoc(doc);
+        List<Element> elements = rdh.traverse(doc);
+        
     }
 
     private void marshalCSV() throws Exception {
