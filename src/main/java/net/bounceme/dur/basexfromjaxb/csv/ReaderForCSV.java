@@ -4,6 +4,8 @@ import com.opencsv.CSVReaderHeaderAware;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,6 +19,12 @@ public class ReaderForCSV {
     private Map<String, String> values;
 
     public ReaderForCSV() {
+    }
+
+    public void jfdkl(URI uri) throws Exception {
+        InputStream in = getClass().getResourceAsStream(uri.toString());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        
     }
 
     public List<String> readFile(URI uri) throws Exception {
