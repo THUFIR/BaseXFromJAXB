@@ -1,16 +1,19 @@
 package net.bounceme.dur.basexfromjaxb;
 
+import java.io.File;
 import net.bounceme.dur.basexfromjaxb.books.BooksMarshaler;
 import net.bounceme.dur.basexfromjaxb.books.Library;
 import java.net.URI;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
-import net.bounceme.dur.basexfromjaxb.csv.ReaderForCVS;
+import net.bounceme.dur.basexfromjaxb.csv.ReaderForCSV;
 
 public class App {
 
     private static final Logger LOG = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
+    private File f;
 
     public static void main(final String... args) throws Exception {
         new App().marshalCSV();
@@ -20,9 +23,13 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/jaxb.xml"));
         URI inputURI = new URI(properties.getProperty("input_csv"));
         URI outputURI = new URI(properties.getProperty("output"));
-        ReaderForCVS c = new ReaderForCVS();
-        c.unmarshal(inputURI);
-        c.printMap();
+        ReaderForCSV csvReader = new ReaderForCSV();
+        List<String> strings =    csvReader.readFile(inputURI);
+        for (String s : strings) {
+            LOG.info(s);
+        }
+        csvReader.unmarshal(inputURI);
+        csvReader.printMap();
     }
 
     private void readBooksFromFile() throws Exception {
@@ -41,6 +48,10 @@ public class App {
         BooksMarshaler booksMarshaller = new BooksMarshaler();
         Library library = booksMarshaller.createNewLibraryFromScratch(2, 3, 4);
         booksMarshaller.marshal(library, outputURI);
+    }
+
+    private List<String> c(URI inputURI) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
