@@ -7,6 +7,11 @@ import javax.xml.bind.JAXB;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+
+
 
 public class RawDataHandler {
 
@@ -15,7 +20,6 @@ public class RawDataHandler {
     public RawDataHandler() {
     }
 
-    
     /*
     
 parser = new DOMParser();
@@ -27,8 +31,7 @@ for (i = 0; i < x.length ;i++) {
     txt += x[i].nodeName + ": " + x[i].childNodes[0].nodeValue + "<br>";
 }
 document.getElementById("demo").innerHTML = txt;
-    */
-    
+     */
     public Document getDoc(URI uri) throws Exception {
         LOG.info(uri.toASCIIString());
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -41,8 +44,11 @@ document.getElementById("demo").innerHTML = txt;
         RawData data = JAXB.unmarshal((new File(uri)), RawData.class);
     }
 
-    public void printDoc(Document doc) {
-        
+    public void printDoc(Document doc) throws Exception {
+        NodeList entries = doc.getElementsByTagName("*");
+        for (int i = 0; i < entries.getLength(); i++) {
+            Element element = (Element) entries.item(i);
+            System.out.println("Found element " + element.toString());
+        }
     }
-
 }
