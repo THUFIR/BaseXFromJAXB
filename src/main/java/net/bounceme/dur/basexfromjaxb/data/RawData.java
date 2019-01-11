@@ -8,73 +8,38 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import net.bounceme.dur.basexfromjaxb.books.Author;
-import net.bounceme.dur.basexfromjaxb.books.Subjects;
 
-@XmlType(propOrder = {"isbn", "title", "authors", "subjects"})
+@XmlType(propOrder = {"id", "item"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RawData {
 
     private static final Logger LOG = Logger.getLogger(RawData.class.getName());
 
     @XmlAttribute
-    private String isbn;
+    private int id;
 
     @XmlElement
-    private String title;
+    private List<String> items = new ArrayList<>();
 
-    @XmlElement
-    private List<Author> authors = new ArrayList<>();
-
-    @XmlElement
-    private Subjects subjects = null;
-
-    private RawData() {
+    public RawData() {
     }
 
-    public RawData(String isbn) {
-        this.isbn = isbn;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return getTitle() + getIsbn();
+    public void setId(int id) {
+        this.id = id;
     }
 
-    void add(Author author) {
-        getAuthors().add(author);
+    public List<String> getItems() {
+        return items;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public void setItems(List<String> items) {
+        this.items = items;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
-    }
-
-    public Subjects getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(Subjects subjects) {
-        this.subjects = subjects;
-    }
+    
 
 }

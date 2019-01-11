@@ -19,17 +19,16 @@ public class App {
     private File f;
 
     public static void main(final String... args) throws Exception {
-        new App().jfdklfj();
+        new App().rawData();
     }
 
-    private void jfdklfj() throws Exception {
+    private void rawData() throws Exception {
         properties.loadFromXML(App.class.getResourceAsStream("/jaxb.xml"));
         URI inputURI = new URI(properties.getProperty("input_data_xml"));
-//        URI outputURI = new URI(properties.getProperty("output"));
         RawDataHandler rdh = new RawDataHandler();
         Document doc = rdh.getDoc(inputURI);
-        List<Element> elements = rdh.traverse(doc);
-        
+        List<Element> elements = rdh.traverseDocument(doc);
+        rdh.documentToJaxb(doc);
     }
 
     private void marshalCSV() throws Exception {

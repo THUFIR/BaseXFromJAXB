@@ -27,18 +27,27 @@ public class RawDataHandler {
         return doc;
     }
 
-    public void unmarshal(URI uri) throws Exception {
+    public RawData unmarshal(URI uri) throws Exception {
         RawData data = JAXB.unmarshal((new File(uri)), RawData.class);
+        return data;
     }
 
-    public List<Element> traverse(Document doc) throws Exception {
+    public void marshal(URI uri) throws Exception {
+        JAXB.marshal((new RawData()), (new File(uri)));
+    }
+
+    public List<Element> traverseDocument(Document document) throws Exception {
         List<Element> elements = new ArrayList<>();
         Element element = null;
-        NodeList entries = doc.getElementsByTagName("*");
+        NodeList entries = document.getElementsByTagName("*");
         for (int i = 0; i < entries.getLength(); i++) {
-             element = (Element) entries.item(i);
-             elements.add(element);
+            element = (Element) entries.item(i);
+            elements.add(element);
         }
         return elements;
+    }
+
+    public void documentToJaxb(Document document) throws Exception {
+        List<Element> elements = traverseDocument(document);
     }
 }
